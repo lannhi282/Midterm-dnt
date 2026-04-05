@@ -28,7 +28,7 @@ const COLORS = {
 
 export default function HomeTab() {
   const [products, setProducts] = useState<Product[]>([]);
-
+  // Fetch products from Firestore
   const fetchProducts = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "products"));

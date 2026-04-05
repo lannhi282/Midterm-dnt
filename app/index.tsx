@@ -14,8 +14,10 @@ import { auth } from "../firebaseConfig";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function LoginScreen() {
-  const [email, setEmail] = useState("admin@gmail.com");
-  const [password, setPassword] = useState("123456");
+  // const [email, setEmail] = useState("admin@gmail.com");
+  // const [password, setPassword] = useState("123456");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async () => {
@@ -28,7 +30,10 @@ export default function LoginScreen() {
       await signInWithEmailAndPassword(auth, email.trim(), password);
       router.replace("/(tabs)/home");
     } catch (error: any) {
-      Alert.alert("Lỗi đăng nhập", error?.message || "Đăng nhập thất bại");
+      Alert.alert(
+        "Sai tài khoản hoặc mật khẩu",
+        error?.message || "Đăng nhập thất bại",
+      );
     }
   };
 

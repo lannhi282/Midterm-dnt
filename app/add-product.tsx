@@ -30,7 +30,7 @@ export default function AddProductScreen() {
       Alert.alert("Thông báo", "Bạn cần cấp quyền truy cập thư viện ảnh");
       return;
     }
-
+    // Chọn ảnh và nén ảnh thành chuỗi Base64
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,

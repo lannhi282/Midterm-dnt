@@ -16,7 +16,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { db } from "../../firebaseConfig";
 import { Product } from "../../types/product";
-import ProductCard from "../../components/ProductCard";
+import ProductCard from "../ProductCard";
 
 const COLORS = {
   primary: "#2563eb",
@@ -63,7 +63,7 @@ export default function ListProductTab() {
     await fetchProducts();
     setRefreshing(false);
   };
-
+  // Handle delete product
   const handleDelete = (idsanpham: string) => {
     Alert.alert("Xác nhận", "Bạn có chắc muốn xóa sản phẩm này?", [
       { text: "Hủy", style: "cancel" },
@@ -92,17 +92,17 @@ export default function ListProductTab() {
 
   const filteredAndSortedProducts = useMemo(() => {
     let data = [...products];
-
+    // Filter by search
     if (search.trim()) {
       data = data.filter((item) =>
         item.tensp.toLowerCase().includes(search.toLowerCase()),
       );
     }
-
+    // Filter by category
     if (selectedCategory !== "Tất cả") {
       data = data.filter((item) => item.loaisp === selectedCategory);
     }
-
+    // Sort products
     switch (sortType) {
       case "priceAsc":
         data.sort((a, b) => a.gia - b.gia);

@@ -99,7 +99,7 @@ export default function EditProductScreen() {
       setHinhanh(base64Image);
     }
   };
-
+  // Update
   const handleUpdate = async () => {
     try {
       const newId = idsanpham.trim();
@@ -119,7 +119,7 @@ export default function EditProductScreen() {
       const oldRef = doc(db, "products", oldId);
       const newRef = doc(db, "products", newId);
 
-      // Nếu người dùng đổi mã sản phẩm
+      // Nếu đổi ID
       if (newId !== oldId) {
         const newSnap = await getDoc(newRef);
 

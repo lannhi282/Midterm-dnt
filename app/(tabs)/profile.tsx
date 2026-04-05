@@ -23,8 +23,8 @@ const COLORS = {
 };
 
 export default function ProfileTab() {
-  const email = useMemo(() => auth.currentUser?.email || "admin@gmail.com", []);
-
+  // const email = useMemo(() => auth.currentUser?.email || "admin@gmail.com", []);
+  const email = useMemo(() => auth.currentUser?.email || "", []);
   const handleLogout = async () => {
     try {
       await signOut(auth);
